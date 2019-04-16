@@ -23,7 +23,7 @@ For analysis described in chapter 5.4 in report.pdf, use the command:
 $ python analysis_homography
 ```
 
-**Note**: the analysis is made for a single sequence of dataset KITTI.
+**Note**: the analysis ( chapter 5.4 ) is made for a single sequence of dataset KITTI ( 0018 ).
 
 
 ## Command line arguments

@@ -16,7 +16,7 @@ path_complete = name_test + '/'
 
 
 # dataset_trajectories.json: trajectories in pixel coordinate in image plane
-json_data = open('dataset_trajectories.json')
+json_data = open('dataset_trajectories_small.json')
 data = json.load(json_data)
 
 

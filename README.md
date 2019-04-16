@@ -22,6 +22,7 @@ For analysis described in chapter 5.4 in report.pdf, use the command:
 ```
 $ python analysis_homography
 ```
+Before, you must extract "dataset_trajectories_frame.zip" containing "dataset_tracjetories_small.json"
 
 **Note**: the analysis ( chapter 5.4 ) is made for a single sequence of dataset KITTI ( 0018 ).
 

@@ -33,7 +33,8 @@ $ python analysis_homography
     -p0 P0                         P0 diagonal value, the initial Process Covariance Matrix. (default: 0.03)
     -q Q                           Q diagonal value, the Process Noise Covariance Matrix. (default: 0.03)
     -r0 R0                         R0 diagonal value, the initial Measurements Noise Covariance Matrix. (default: 0.03)
-    '-n', --past_len               past length (default: 20)
+    --past_len                     past length (default: 20)
+    --future_len                   future length (default: 40)
     -a, --acceleration             use acceleration (default: False)
 
 ```

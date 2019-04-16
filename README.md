@@ -12,11 +12,18 @@ This project requires the following Python packages installed:
 
 ## Example execution
 
-This command start the trajectories prediction analysis using kalman filter with uniformly accelerated motion and save the qualitative results.
+This command starts the trajectories prediction analysis using kalman filter with uniformly accelerated motion and save the qualitative results:
 ```
 $ python main.py -s -a 
 ```
 The details of analysis and qualitative results are saved in a folder.
+
+For analysis described in chapter 5.4 in report.pdf, use the command:
+```
+$ python analysis_homography
+```
+
+
 
 ## Command line arguments
 ```
@@ -32,7 +39,6 @@ The details of analysis and qualitative results are saved in a folder.
 
 **Note**:
 This project has been developed for the course "Image and Video Analysis" ( Università degli studi di Firenze ).
-
 It has been resumed the work made by Simone Magistri and Ivan Prosperi. I thank them for excellent work.
 
 

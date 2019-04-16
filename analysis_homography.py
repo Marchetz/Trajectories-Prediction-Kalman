@@ -1,6 +1,5 @@
 import utils
 import numpy as np
-from kalman_filter_kitti import kalman_filter_kitti
 import matplotlib.pyplot as plt
 import pdb
 import os

@@ -38,7 +38,8 @@ group.add_argument('-s', '--save', action='store_true', help='save the qualitati
 parser.add_argument('-p0', type=float, default=15, help='P0 diagonal value')
 parser.add_argument('-q', type=float, default=0.03, help='Q diagonal value')
 parser.add_argument('-r0', type=float, default=0.03, help='R0 diagonal value')
-parser.add_argument('-n', type=int, default=5, help='training frames')
+parser.add_argument('--past_len', type=int, default=5, help='past length')
+parser.add_argument('--future_len', type=int, default=40, help='future length')
 parser.add_argument('-a', '--acceleration', action='store_true', help='use acceleration')
 
 args = parser.parse_args()
@@ -46,8 +47,8 @@ args = parser.parse_args()
 
 """ PARAMETERS """
 save_plot = args.save
-n = args.n
-k = 40
+n = args.past_len
+k = args.future_len
 p0 = args.p0
 q = args.q
 r0 = args.r0
@@ -119,24 +120,24 @@ for track in track_list:
             pred_index = pred_index - present
             gt_index = gt_index - present
 
-            e1s = np.linalg.norm(pred_index[9] - gt_index[9])
-            e2s = np.linalg.norm(pred_index[19] - gt_index[19])
-            e3s = np.linalg.norm(pred_index[29] - gt_index[29])
-            e4s = np.linalg.norm(pred_index[39] - gt_index[39])
+            # horizon metrics
+            if k > 10:
+                error_1s = np.linalg.norm(pred_index[9] - gt_index[9])
+            if k > 20:
+                error_2s = np.linalg.norm(pred_index[19] - gt_index[19])
+            if k > 30:
+                error_3s = np.linalg.norm(pred_index[29] - gt_index[29])
+            if k >= 40:
+                error_4s = np.linalg.norm(pred_index[39] - gt_index[39])
             error_mean_track = 0
             for i_error in range(len(pred_index)):
                 error_mean_track += np.linalg.norm(pred_index[i_error] - gt_index[i_error])
-            error_1s += e1s
-            error_2s += e2s
-            error_3s += e3s
-            error_4s += e4s
             error_mean += error_mean_track / len(pred_index)
             (MHD, FHD, RHD) = ModHausdorffDist(pred_index, gt_index)
             mhd += FHD
 
             if save_plot:
                 plt.axis('equal')
-
                 # plt.plot(measurements[:, 0], measurements[:, 1], c='gray', marker='o', markersize=1)
                 plt.plot([], [], ' ')
                 plt.plot(past_index[:, 0], past_index[:, 1], c='blue', marker='o', markersize=3)

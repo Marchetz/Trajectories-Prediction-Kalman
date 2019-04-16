@@ -41,7 +41,7 @@ $ python analysis_homography
 
 **Note**:
 This project has been developed for the course "Image and Video Analysis" ( Università degli studi di Firenze ).
-It has been resumed the work made by Simone Magistri and Ivan Prosperi. I thank them for excellent work.
+It has been resumed the work made by **Simone Magistri** and **Ivan Prosperi**. I thank them for excellent work.
 
 
 ## Authors
